@@ -24,10 +24,6 @@ public class Customer {
 	@Column(name = "Address", nullable = false)
 	private String address;
 
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "Employee_ID")
-//	private Employee employee;
-
 	public Customer() {
 	}
 
@@ -36,7 +32,6 @@ public class Customer {
 		this.name = name;
 		this.number = number;
 		this.address = address;
-//		this.employee = employee;
 	}
 
 	public String getEmail() {
@@ -71,11 +66,4 @@ public class Customer {
 		this.address = address;
 	}
 
-//	public Employee getEmployee() {
-//		return employee;
-//	}
-//
-//	public void setEmployee(Employee employee) {
-//		this.employee = employee;
-//	}
 }
