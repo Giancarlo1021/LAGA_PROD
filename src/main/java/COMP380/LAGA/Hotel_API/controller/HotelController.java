@@ -2,7 +2,7 @@ package COMP380.LAGA.Hotel_API.controller;
 
 import COMP380.LAGA.Hotel_API.exceptions.ResourceNotFoundException;
 import COMP380.LAGA.Hotel_API.model.Customer;
-import COMP380.LAGA.Hotel_API.repository.CustomerRepository;
+import COMP380.LAGA.Hotel_API.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,52 +14,51 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1")
-public class CustomerController {
+public class HotelController {
 
     @Autowired
-    private CustomerRepository customerRepository;
+    private HotelRepository hotelRepository;
 
     @GetMapping("/customers")
     public List<Customer> getAllCustomers() {
-        return customerRepository.findAll();
+        return hotelRepository.findAll();
     }
 
     @GetMapping("/customers/{email}")
-    public ResponseEntity<Customer> getCustomerByEmail(@PathVariable(value = "email") String email)
+    public ResponseEntity<Customer> getCustomerByEmail(@PathVariable(value = "email") Long email)
             throws ResourceNotFoundException {
-        Customer customer = customerRepository.findById(Long.valueOf(email))
+        Customer customer = hotelRepository.findById(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this email :: " + email));
         return ResponseEntity.ok().body(customer);
     }
 
     @PostMapping("/customers")
     public Customer createCustomer(@Valid @RequestBody Customer customer) {
-        return customerRepository.save(customer);
+        return hotelRepository.save(customer);
     }
 
     @PutMapping("/customers/{email}")
-    public ResponseEntity<Customer> updateCustomer(@PathVariable(value = "email") String email,
+    public ResponseEntity<Customer> updateCustomer(@PathVariable(value = "email") Long email,
                                                    @Valid @RequestBody Customer customerDetails) throws ResourceNotFoundException {
-        Customer customer = customerRepository.findById(Long.valueOf(email))
+        Customer customer = hotelRepository.findById(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this email :: " + email));
 
         customer.setEmail(customerDetails.getEmail());
         customer.setName(customerDetails.getName());
         customer.setNumber(customerDetails.getNumber());
         customer.setAddress(customerDetails.getAddress());
-//      customer.setEmployee(customerDetails.getEmployee());
 
-        final Customer updatedCustomer = customerRepository.save(customer);
+        final Customer updatedCustomer = hotelRepository.save(customer);
         return ResponseEntity.ok(updatedCustomer);
     }
 
     @DeleteMapping("/customers/{email}")
     public Map<String, Boolean> deleteCustomer(@PathVariable(value = "email") String email)
             throws ResourceNotFoundException {
-        Customer customer = customerRepository.findById(Long.valueOf(email))
+        Customer customer = hotelRepository.findById(Long.valueOf(email))
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this email :: " + email));
 
-        customerRepository.delete(customer);
+        hotelRepository.delete(customer);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
