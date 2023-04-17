@@ -83,11 +83,13 @@ public class HotelController {
     @Autowired
     private HotelRepository hotelRepository;
 
+    @CrossOrigin
     @GetMapping
     public List<Customer> getAllCustomers() {
         return hotelRepository.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/{email}")
     public ResponseEntity<Customer> getCustomerByEmail(@PathVariable("email") String email) {
         Optional<Customer> customer = hotelRepository.findById(email);
@@ -99,11 +101,13 @@ public class HotelController {
         }
     }
 
+    @CrossOrigin
     @PostMapping
     public Customer createCustomer(@RequestBody Customer customer) {
         return hotelRepository.save(customer);
     }
 
+    @CrossOrigin
     @PutMapping("/{email}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable("email") String email, @RequestBody Customer customerDetails) {
         Optional<Customer> customer = hotelRepository.findById(email);
@@ -120,6 +124,7 @@ public class HotelController {
         }
     }
 
+    @CrossOrigin
     @DeleteMapping("/{email}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable("email") String email) {
         Optional<Customer> customer = hotelRepository.findById(email);
