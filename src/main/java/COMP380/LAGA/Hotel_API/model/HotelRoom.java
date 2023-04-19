@@ -1,5 +1,6 @@
 package COMP380.LAGA.Hotel_API.model;
 
+import jakarta.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
@@ -11,30 +12,30 @@ import javax.persistence.Column;
 public class HotelRoom {
 	
 	@Id
-	@Column(name = "Room_Number", nullable = false)
+	@Column(name = "roomnumber", nullable = false)
 	private int roomNumber;
 	
-	@Column(name = "Room_Type", nullable = false)
+	@Column(name = "room", nullable = false)
 	private String room;
 
-	@Column(name = "Booking_Status", nullable = false)
+	@Column(name = "status", nullable = false)
 	private boolean status;
 
 	
 	public HotelRoom() {
 	}
-	public HotelRoom(String room, int roomNumber, boolean status) {
-		this.room = room;
+	public HotelRoom(int roomNumber, String room, boolean status) {
 		this.roomNumber = roomNumber;
+		this.room = room;
 		this.status = status;
 	}
 
-	// Get and set the booking availability of the hotel room.
-	public boolean getAvailability() {
-		return status;
+	// Get and set the number of the hotel room.
+	public int getRoomNumber() {
+		return roomNumber;
 	}
-	public void setAvailability(boolean status) {
-		this.status = status;
+	public void setRoomNumber(int roomNumber) {
+		this.roomNumber = roomNumber;
 	}
 
 	// Get and set the type of hotel room.
@@ -45,11 +46,11 @@ public class HotelRoom {
 		this.room = room;
 	}
 
-	// Get and set the number of the hotel room.
-	public int getRoomNumber() {
-		return roomNumber;
+	// Get and set the booking availability of the hotel room.
+	public boolean getAvailability() {
+		return status;
 	}
-	public void setRoomNumber(int roomNumber) {
-		this.roomNumber = roomNumber;
+	public void setAvailability(boolean status) {
+		this.status = status;
 	}
 }
