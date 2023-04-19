@@ -22,7 +22,7 @@
 //    }
 //}
 
-package COMP380.LAGA.Hotel_API.repository;
+package COMP380.LAGA.Hotel_API.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

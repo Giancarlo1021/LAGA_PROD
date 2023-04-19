@@ -1,37 +1,47 @@
 package COMP380.LAGA.Hotel_API.model;
 
-import jakarta.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
 import javax.persistence.Column;
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "Customer")
+@Table(name = "customer", schema = "public")
 public class Customer {
 
 	@Id
-	@Column(name = "Customer_Email", nullable = false)
+	@Column(name = "fullname", nullable = false)
+	private String fullName;
+
+	@Column(name = "phonenumber")
+	private Integer phoneNumber;
+
+	@Column(name = "email")
 	private String email;
 
-	@Column(name = "Name", nullable = false)
-	private String name;
-
-	@Column(name = "Number", nullable = false)
-	private String number;
-
-	@Column(name = "Address", nullable = false)
+	@Column(name = "address")
 	private String address;
+
+	@Column(name = "creditcardnumber")
+	private Integer creditCardNumber;
 
 	public Customer() {
 	}
 
-	public Customer(String email, String name, String number, String address) {
-		this.email = email;
-		this.name = name;
-		this.number = number;
-		this.address = address;
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public Integer getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(Integer phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getEmail() {
@@ -42,22 +52,6 @@ public class Customer {
 		this.email = email;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getNumber() {
-		return number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
 	public String getAddress() {
 		return address;
 	}
@@ -66,4 +60,11 @@ public class Customer {
 		this.address = address;
 	}
 
+	public Integer getCreditCardNumber() {
+		return creditCardNumber;
+	}
+
+	public void setCreditCardNumber(Integer creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
+	}
 }

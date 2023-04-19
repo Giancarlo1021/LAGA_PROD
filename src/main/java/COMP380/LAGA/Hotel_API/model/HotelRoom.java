@@ -1,51 +1,55 @@
-//package COMP380.LAGA.Hotel_API.model;
-//
-//public class HotelRoom {
-//	private String room;
-//
-//	private int roomNumber;
-//
-//	private boolean status;
-//
-//	//private String customerName;
-//
-//
-//	public boolean checkAvailability() {
-//		return status;
-//	}
-//
-//	public String getRoomName() {
-//		return room;
-//	}
-//
-//	public void setRoomName(String room) {
-//		this.room = room;
-//	}
-//
-//
-//	public int getRoomNumber() {
-//		return roomNumber;
-//	}
-//
-//	public void setRoomNumber(int roomNumber) {
-//		this.roomNumber = roomNumber;
-//	}
-//
-//	public boolean getAvailability() {
-//		return status;
-//	}
-//
-//	public void setAvailability(boolean status) {
-//		this.status = status;
-//	}
-//
-//	/*
-//	public String getCustomerName() {
-//		return customerName;
-//	}
-//
-//	public void setCustomerName(String customerName) {
-//		this.customerName = customerName;
-//	}
-//	*/
-//}
+package COMP380.LAGA.Hotel_API.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
+
+
+@Entity
+@Table(name = "Hotel_Room")
+public class HotelRoom {
+	
+	@Id
+	@Column(name = "Room_Number", nullable = false)
+	private int roomNumber;
+	
+	@Column(name = "Room_Type", nullable = false)
+	private String room;
+
+	@Column(name = "Booking_Status", nullable = false)
+	private boolean status;
+
+	
+	public HotelRoom() {
+	}
+	public HotelRoom(String room, int roomNumber, boolean status) {
+		this.room = room;
+		this.roomNumber = roomNumber;
+		this.status = status;
+	}
+
+	// Get and set the booking availability of the hotel room.
+	public boolean getAvailability() {
+		return status;
+	}
+	public void setAvailability(boolean status) {
+		this.status = status;
+	}
+
+	// Get and set the type of hotel room.
+	public String getRoomType() {
+		return room;
+	}
+	public void setRoomType(String room) {
+		this.room = room;
+	}
+
+	// Get and set the number of the hotel room.
+	public int getRoomNumber() {
+		return roomNumber;
+	}
+	public void setRoomNumber(int roomNumber) {
+		this.roomNumber = roomNumber;
+	}
+}
