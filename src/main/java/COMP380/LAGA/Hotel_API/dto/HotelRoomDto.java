@@ -1,6 +1,6 @@
 package COMP380.LAGA.Hotel_API.dto;
 
-public class HotelRoomInfo {
+public class HotelRoomDto {
     private Long hotelRoomId;
     private Integer roomNumber;
     private String roomType;
@@ -10,9 +10,9 @@ public class HotelRoomInfo {
     private String hotelAddress;
     private String hotelPhoneNumber;
 
-    public HotelRoomInfo(Long hotelRoomId, Integer roomNumber, String roomType,
-                         Double price, Boolean isAvailable, String hotelName,
-                         String hotelAddress, String hotelPhoneNumber) {
+    public HotelRoomDto(Long hotelRoomId, Integer roomNumber, String roomType,
+                        Double price, Boolean isAvailable, String hotelName,
+                        String hotelAddress, String hotelPhoneNumber) {
         this.hotelRoomId = hotelRoomId;
         this.roomNumber = roomNumber;
         this.roomType = roomType;

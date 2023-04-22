@@ -1,6 +1,6 @@
 package COMP380.LAGA.Hotel_API.controller;
 
-import COMP380.LAGA.Hotel_API.dto.HotelRoomInfo;
+import COMP380.LAGA.Hotel_API.dto.HotelRoomDto;
 import COMP380.LAGA.Hotel_API.model.Hotel;
 import COMP380.LAGA.Hotel_API.model.HotelRoom;
 
@@ -24,17 +24,39 @@ public class HotelRoomController {
     @Autowired
     private HotelRepository hotelRepository;
 
+    @CrossOrigin
     @GetMapping
     public ResponseEntity<List<HotelRoom>> getAllHotelRooms() {
         List<HotelRoom> hotelRooms = hotelRoomRepository.findAll();
         return new ResponseEntity<>(hotelRooms, HttpStatus.OK);
     }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<HotelRoom> getHotelRoomById(@PathVariable("id") Long id) {
         Optional<HotelRoom> hotelRoom = hotelRoomRepository.findById(id);
         return hotelRoom.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+    @CrossOrigin
+    @GetMapping("/room_number")
+    public ResponseEntity<HotelRoom> getHotelRoomByRoomNumber(@RequestParam int roomNumber) {
+        Optional<HotelRoom> hotelRoomOptional = hotelRoomRepository.findByRoomNumber(roomNumber);
+        if (hotelRoomOptional.isPresent()) {
+            HotelRoom hotelRoom = hotelRoomOptional.get();
+            return ResponseEntity.ok(hotelRoom);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @CrossOrigin
+    @GetMapping("/available_rooms")
+    public ResponseEntity<List<HotelRoom>> getAvailableHotelRooms() {
+        List<HotelRoom> availableHotelRoom = hotelRoomRepository.findAllAvailableRoomsSortedByHotel();
+        return new ResponseEntity<>(availableHotelRoom, HttpStatus.OK);
+    }
+
 
     @PostMapping
     public ResponseEntity<HotelRoom> createHotelRoom(@RequestBody HotelRoom hotelRoom) {
@@ -71,10 +93,10 @@ public class HotelRoomController {
     }
 
     @GetMapping("/hotel/{hotelId}")
-    public ResponseEntity<List<HotelRoomInfo>> getHotelRoomsByHotelId(@PathVariable("hotelId") Long hotelId) {
+    public ResponseEntity<List<HotelRoomDto>> getHotelRoomsByHotelId(@PathVariable("hotelId") Long hotelId) {
         Optional<Hotel> hotel = hotelRepository.findById(hotelId);
         if (hotel.isPresent()) {
-            List<HotelRoomInfo> hotelRooms = hotelRoomRepository.findHotelRoomsByHotelId(hotelId);
+            List<HotelRoomDto> hotelRooms = hotelRoomRepository.findHotelRoomsByHotelId(hotelId);
             return new ResponseEntity<>(hotelRooms, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
