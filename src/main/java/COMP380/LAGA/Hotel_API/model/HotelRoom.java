@@ -1,56 +1,81 @@
 package COMP380.LAGA.Hotel_API.model;
 
-import jakarta.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.Column;
-
+import javax.persistence.*;
 
 @Entity
-@Table(name = "Hotel_Room")
+@Table(name = "hotel_rooms")
 public class HotelRoom {
-	
-	@Id
-	@Column(name = "roomnumber", nullable = false)
-	private int roomNumber;
-	
-	@Column(name = "room", nullable = false)
-	private String room;
 
-	@Column(name = "status", nullable = false)
-	private boolean status;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	
-	public HotelRoom() {
-	}
-	public HotelRoom(int roomNumber, String room, boolean status) {
-		this.roomNumber = roomNumber;
-		this.room = room;
-		this.status = status;
-	}
+    @ManyToOne
+    @JoinColumn(name = "hotel_id", nullable = false)
+    private Hotel hotel;
 
-	// Get and set the number of the hotel room.
-	public int getRoomNumber() {
-		return roomNumber;
-	}
-	public void setRoomNumber(int roomNumber) {
-		this.roomNumber = roomNumber;
-	}
+    @Column(name = "room_number", nullable = false)
+    private Integer roomNumber;
 
-	// Get and set the type of hotel room.
-	public String getRoomType() {
-		return room;
-	}
-	public void setRoomType(String room) {
-		this.room = room;
-	}
+    @Column(name = "room_type", nullable = false)
+    private String roomType;
 
-	// Get and set the booking availability of the hotel room.
-	public boolean getAvailability() {
-		return status;
-	}
-	public void setAvailability(boolean status) {
-		this.status = status;
-	}
+    @Column(nullable = false)
+    private Double price;
+
+    @Column(name = "is_available", nullable = false)
+    private Boolean isAvailable;
+
+    // Getters, setters, and constructors
+
+    public HotelRoom() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Integer getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(Integer roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Boolean getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(Boolean isAvailable) {
+        this.isAvailable = isAvailable;
+    }
 }
