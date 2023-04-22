@@ -31,6 +31,7 @@ public class CustomerController {
         return ResponseEntity.ok(customer);
     }
 
+    @CrossOrigin
     @PostMapping
     public Customer createCustomer(@RequestBody Customer customer) {
         return customerRepository.save(customer);
