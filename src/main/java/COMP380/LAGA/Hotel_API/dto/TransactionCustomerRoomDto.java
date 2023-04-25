@@ -16,11 +16,12 @@ public class TransactionCustomerRoomDto {
     private double price;
     private boolean isAvailable;
 
+    // transactionId changed from "long" to "int".
 
     public TransactionCustomerRoomDto(int id, Date checkInDate, Date checkOutDate, double totalAmount,
                                       String firstName, String lastName, String email, String phoneNumber,
                                       int roomNumber, String roomType, double price, boolean isAvailable) {
-        this.transactionId = (long) id;
+        this.transactionId = (int) id;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.totalAmount = totalAmount;

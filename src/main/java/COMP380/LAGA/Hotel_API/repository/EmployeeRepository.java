@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
+// Changed "Long" to "Integer."
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
     @Query("SELECT new COMP380.LAGA.Hotel_API.dto.EmployeeHotelDto(" +
             "e.id, e.firstName, e.lastName, e.email, e.phoneNumber, e.role, " +

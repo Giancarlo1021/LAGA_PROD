@@ -2,7 +2,7 @@ package COMP380.LAGA.Hotel_API.dto;
 
 public class EmployeeHotelDto {
 
-    private Long employeeId;
+    private Integer employeeId;
     private String firstName;
     private String lastName;
     private String email;
@@ -12,7 +12,9 @@ public class EmployeeHotelDto {
     private String hotelAddress;
     private String hotelPhoneNumber;
 
-    public EmployeeHotelDto(Long employeeId, String firstName, String lastName, String email,
+
+    // Replaced "Long" with "Integer" everywhere it appeared.
+    public EmployeeHotelDto(Integer employeeId, String firstName, String lastName, String email,
                             String employeePhoneNumber, String role, String hotelName,
                             String hotelAddress, String hotelPhoneNumber) {
         this.employeeId = employeeId;
@@ -26,11 +28,11 @@ public class EmployeeHotelDto {
         this.hotelPhoneNumber = hotelPhoneNumber;
     }
 
-    public Long getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(Long employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
 
