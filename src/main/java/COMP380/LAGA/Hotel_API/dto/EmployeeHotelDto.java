@@ -1,8 +1,7 @@
 package COMP380.LAGA.Hotel_API.dto;
 
 public class EmployeeHotelDto {
-
-    private Integer employeeId;
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
@@ -12,76 +11,17 @@ public class EmployeeHotelDto {
     private String hotelAddress;
     private String hotelPhoneNumber;
 
+    public EmployeeHotelDto(Long id, String firstName, String lastName, String email, String employeePhoneNumber, String role,
+                            String hotelName, String hotelAddress, String hotelPhoneNumber) {
 
-    // Replaced "Long" with "Integer" everywhere it appeared.
-    public EmployeeHotelDto(Integer employeeId, String firstName, String lastName, String email,
-                            String employeePhoneNumber, String role, String hotelName,
-                            String hotelAddress, String hotelPhoneNumber) {
-        this.employeeId = employeeId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.employeePhoneNumber = employeePhoneNumber;
-        this.role = role;
-        this.hotelName = hotelName;
-        this.hotelAddress = hotelAddress;
+    }
+
+    public String getHotelPhoneNumber() {
+        return hotelPhoneNumber;
+    }
+
+    public void setHotelPhoneNumber(String hotelPhoneNumber) {
         this.hotelPhoneNumber = hotelPhoneNumber;
-    }
-
-    public Integer getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmployeePhoneNumber() {
-        return employeePhoneNumber;
-    }
-
-    public void setEmployeePhoneNumber(String employeePhoneNumber) {
-        this.employeePhoneNumber = employeePhoneNumber;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getHotelName() {
-        return hotelName;
-    }
-
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
     }
 
     public String getHotelAddress() {
@@ -92,11 +32,59 @@ public class EmployeeHotelDto {
         this.hotelAddress = hotelAddress;
     }
 
-    public String getHotelPhoneNumber() {
-        return hotelPhoneNumber;
+    public String getHotelName() {
+        return hotelName;
     }
 
-    public void setHotelPhoneNumber(String hotelPhoneNumber) {
-        this.hotelPhoneNumber = hotelPhoneNumber;
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getEmployeePhoneNumber() {
+        return employeePhoneNumber;
+    }
+
+    public void setEmployeePhoneNumber(String employeePhoneNumber) {
+        this.employeePhoneNumber = employeePhoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

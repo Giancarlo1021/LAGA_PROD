@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
-// Changed "Long" to "Integer."
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
