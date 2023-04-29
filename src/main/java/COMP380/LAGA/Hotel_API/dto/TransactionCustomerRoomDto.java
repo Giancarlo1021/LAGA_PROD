@@ -3,118 +3,42 @@ package COMP380.LAGA.Hotel_API.dto;
 import java.util.Date;
 
 public class TransactionCustomerRoomDto {
-    private long transactionId;
+    private Integer id;
     private Date checkInDate;
     private Date checkOutDate;
-    private double totalAmount;
-    private String customerFirstName;
-    private String customerLastName;
-    private String customerEmail;
-    private String customerPhoneNumber;
-    private int roomNumber;
+    private Double totalAmount;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phoneNumber;
+    private Integer roomNumber;
     private String roomType;
-    private double price;
-    private boolean isAvailable;
+    private Double price;
+    private Boolean isAvailable;
 
-    // transactionId changed from "long" to "int".
-
-    public TransactionCustomerRoomDto(int id, Date checkInDate, Date checkOutDate, double totalAmount,
+    public TransactionCustomerRoomDto(Integer id, Date checkInDate, Date checkOutDate, Double totalAmount,
                                       String firstName, String lastName, String email, String phoneNumber,
-                                      int roomNumber, String roomType, double price, boolean isAvailable) {
-        this.transactionId = (int) id;
+                                      Integer roomNumber, String roomType, Double price, Boolean isAvailable) {
+        this.id = id;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.totalAmount = totalAmount;
-        this.customerFirstName = firstName;
-        this.customerLastName = lastName;
-        this.customerEmail = email;
-        this.customerPhoneNumber = phoneNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.price = price;
         this.isAvailable = isAvailable;
     }
 
-    // Add getters and setters here
-
-    public Long getTransactionId() {
-        return transactionId;
+    public Boolean getAvailable() {
+        return isAvailable;
     }
 
-    public void setTransactionId(Long transactionId) {
-        this.transactionId = transactionId;
-    }
-
-    public Date getCheckInDate() {
-        return checkInDate;
-    }
-
-    public void setCheckInDate(Date checkInDate) {
-        this.checkInDate = checkInDate;
-    }
-
-    public Date getCheckOutDate() {
-        return checkOutDate;
-    }
-
-    public void setCheckOutDate(Date checkOutDate) {
-        this.checkOutDate = checkOutDate;
-    }
-
-    public Double getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(Double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public String getCustomerFirstName() {
-        return customerFirstName;
-    }
-
-    public void setCustomerFirstName(String customerFirstName) {
-        this.customerFirstName = customerFirstName;
-    }
-
-    public String getCustomerLastName() {
-        return customerLastName;
-    }
-
-    public void setCustomerLastName(String customerLastName) {
-        this.customerLastName = customerLastName;
-    }
-
-    public String getCustomerEmail() {
-        return customerEmail;
-    }
-
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
-    }
-
-    public String getCustomerPhoneNumber() {
-        return customerPhoneNumber;
-    }
-
-    public void setCustomerPhoneNumber(String customerPhoneNumber) {
-        this.customerPhoneNumber = customerPhoneNumber;
-    }
-
-    public Integer getRoomNumber() {
-        return roomNumber;
-    }
-
-    public void setRoomNumber(Integer roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
-    public String getRoomType() {
-        return roomType;
-    }
-
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
     }
 
     public Double getPrice() {
@@ -125,11 +49,83 @@ public class TransactionCustomerRoomDto {
         this.price = price;
     }
 
-    public Boolean getIsAvailable() {
-        return isAvailable;
+    public String getRoomType() {
+        return roomType;
     }
 
-    public void setIsAvailable(Boolean isAvailable) {
-        this.isAvailable = isAvailable;
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
+    }
+
+    public Integer getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(Integer roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public Date getCheckOutDate() {
+        return checkOutDate;
+    }
+
+    public void setCheckOutDate(Date checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+
+    public Date getCheckInDate() {
+        return checkInDate;
+    }
+
+    public void setCheckInDate(Date checkInDate) {
+        this.checkInDate = checkInDate;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

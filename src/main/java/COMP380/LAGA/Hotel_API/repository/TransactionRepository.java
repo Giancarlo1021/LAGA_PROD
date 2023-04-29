@@ -33,4 +33,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
             "WHERE c.email = :email")
     List<TransactionCustomerRoomDto> findByCustomerEmail(@Param("email") String customerEmail);
 
+    @Query("SELECT t FROM Transaction t JOIN FETCH t.customer c WHERE t.id = :id")
+    Transaction findByIdWithCustomer(@Param("id") Integer id);
+
 }

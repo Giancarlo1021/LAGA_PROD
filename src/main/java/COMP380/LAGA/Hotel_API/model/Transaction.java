@@ -1,5 +1,7 @@
 package COMP380.LAGA.Hotel_API.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -16,7 +18,8 @@ public class Transaction {
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "hotel_room_id", nullable = false)
+    @JoinColumn(name = "Hotel_room_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private HotelRoom hotelRoom;
 
     @Column(name = "check_in_date", nullable = false)
