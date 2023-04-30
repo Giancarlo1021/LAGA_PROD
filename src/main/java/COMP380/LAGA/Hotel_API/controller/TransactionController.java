@@ -62,45 +62,6 @@ public class TransactionController {
         return ResponseEntity.ok(transaction);
     }
 
-//    @CrossOrigin
-//    @PostMapping("/hotels/{hotelId}/transactions")
-//    public ResponseEntity<Transaction> createTransaction(@PathVariable Long hotelId, @RequestBody CreateTransactionRequestDto request) {
-//        // Check if hotel exists
-//        Optional<Hotel> hotelOptional = hotelRepository.findById(hotelId);
-//        if (!hotelOptional.isPresent()) {
-//            return ResponseEntity.notFound().build();
-//        }
-//        Hotel hotel = hotelOptional.get();
-//
-//        // Check if hotel room exists
-//        Optional<HotelRoom> hotelRoomOptional = hotelRoomRepository.findById(request.getHotelRoomId());
-//        if (!hotelRoomOptional.isPresent() || !hotelRoomOptional.get().getHotel().equals(hotel)) {
-//            return ResponseEntity.badRequest().build();
-//        }
-//        HotelRoom hotelRoom = hotelRoomOptional.get();
-//
-//        // Check if customer already exists or create new customer
-//        Customer customer;
-//        Optional<Customer> customerOptional = customerRepository.findByEmail(request.getCustomer().getEmail());
-//        if (customerOptional.isPresent()) {
-//            customer = customerOptional.get();
-//        } else {
-//            customer = request.getCustomer();
-//            customerRepository.save(customer);
-//        }
-//
-//        // Create new transaction and save to repository
-//        Transaction transaction = new Transaction();
-//        transaction.setCustomer(customer);
-//        transaction.setHotelRoom(hotelRoom);
-//        transaction.setCheckInDate(request.getCheckInDate());
-//        transaction.setCheckOutDate(request.getCheckOutDate());
-//        transaction.setTotalAmount(request.getTotalAmount());
-//        Transaction savedTransaction = transactionRepository.save(transaction);
-//
-//        return ResponseEntity.ok(savedTransaction);
-//    }
-
     @CrossOrigin
     @PostMapping("/hotels/{hotelId}/transactions")
     public ResponseEntity<Transaction> createTransaction(@RequestBody CreateTransactionRequestDto request) {

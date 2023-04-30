@@ -57,13 +57,26 @@ public class HotelRoomController {
         return new ResponseEntity<>(availableHotelRoom, HttpStatus.OK);
     }
 
+    @CrossOrigin
+    @GetMapping("/hotel/{hotelId}")
+    public ResponseEntity<List<HotelRoomDto>> getHotelRoomsByHotelId(@PathVariable("hotelId") Long hotelId) {
+        Optional<Hotel> hotel = hotelRepository.findById(hotelId);
+        if (hotel.isPresent()) {
+            List<HotelRoomDto> hotelRooms = hotelRoomRepository.findHotelRoomsByHotelId(hotelId);
+            return new ResponseEntity<>(hotelRooms, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 
+    @CrossOrigin
     @PostMapping
     public ResponseEntity<HotelRoom> createHotelRoom(@RequestBody HotelRoom hotelRoom) {
         HotelRoom newHotelRoom = hotelRoomRepository.save(hotelRoom);
         return new ResponseEntity<>(newHotelRoom, HttpStatus.CREATED);
     }
 
+    @CrossOrigin
     @PutMapping("/{id}")
     public ResponseEntity<HotelRoom> updateHotelRoom(@PathVariable("id") Long id, @RequestBody HotelRoom hotelRoom) {
         Optional<HotelRoom> existingHotelRoom = hotelRoomRepository.findById(id);
@@ -81,23 +94,13 @@ public class HotelRoomController {
         }
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteHotelRoom(@PathVariable("id") Long id) {
         Optional<HotelRoom> existingHotelRoom = hotelRoomRepository.findById(id);
         if (existingHotelRoom.isPresent()) {
             hotelRoomRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @GetMapping("/hotel/{hotelId}")
-    public ResponseEntity<List<HotelRoomDto>> getHotelRoomsByHotelId(@PathVariable("hotelId") Long hotelId) {
-        Optional<Hotel> hotel = hotelRepository.findById(hotelId);
-        if (hotel.isPresent()) {
-            List<HotelRoomDto> hotelRooms = hotelRoomRepository.findHotelRoomsByHotelId(hotelId);
-            return new ResponseEntity<>(hotelRooms, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
