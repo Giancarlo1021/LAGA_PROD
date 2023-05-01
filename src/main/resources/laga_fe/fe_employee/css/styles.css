@@ -1,0 +1,26 @@
+
+body{
+ 
+}
+
+.header {
+    background-color: #738580;
+    margin: 20px;
+    padding: 10px;
+}
+
+.menu{
+    background-color: #738580;
+}
+
+a:link {
+    color:antiquewhite; 
+}
+
+a:visited {
+    color:antiquewhite;
+}
+
+a:hover{
+    color:aliceblue;
+}
