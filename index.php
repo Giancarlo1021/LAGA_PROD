@@ -1,1 +1,1 @@
-<?php include_once("home.html"); ?>
+<?php include_once("src/main/resources/laga_fe/fe_employee/home.html"); ?>
