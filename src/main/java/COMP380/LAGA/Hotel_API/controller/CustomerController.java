@@ -51,7 +51,7 @@ public class CustomerController {
         return ResponseEntity.ok(savedCustomer);
     }
 
-
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable Integer id) {
         Customer customer = customerRepository.findById(id).orElse(null);

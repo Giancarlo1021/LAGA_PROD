@@ -81,6 +81,7 @@ public class HotelRoomController {
         }
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteHotelRoom(@PathVariable("id") Long id) {
         Optional<HotelRoom> existingHotelRoom = hotelRoomRepository.findById(id);

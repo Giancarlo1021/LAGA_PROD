@@ -69,7 +69,7 @@ public class EmployeeController {
         return ResponseEntity.ok(savedEmployee);
     }
 
-
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteEmployee(@PathVariable Integer id) {
         Employee employee = employeeRepository.findById(id).orElse(null);
