@@ -113,6 +113,7 @@ public class TransactionController {
         }
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTransaction(@PathVariable Integer transactionId, @PathVariable Integer employeeId) {
         Employee employee = employeeRepository.findById(employeeId).orElse(null);
