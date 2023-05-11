@@ -88,7 +88,7 @@ let cus_fname;
 let cus_email;
 let cus_phone;
 
-let hoteL_room_id;
+let hotel_room_id;
 
 
 const initForm = document.querySelector('#init_form');
@@ -338,4 +338,28 @@ subForm.addEventListener('submit', e => {
       .catch(error => {
         console.error(error);
       });
+
+      const conf = document.getElementById('conf_det');
+      let conf_print ='';
+      conf_print = `
+        You are all set for vacation, ${cus_fname} ${cus_lname}!
+        <br>
+        Here are your confirmation details:
+        <ul>
+          <li>Check in: ${check_in}</li>
+          <li>Check out: ${check_out} </li>
+          <li>Room Type: ${room_type} </li>
+          <li>Length of Stay: ${num_stay} </li>
+          <li>Total Amount: ${res_total} </li>
+        </ul>
+          See you soon!
+
+          Best,
+          LAGA Hotel
+      `;
+
+
+
+      conf.innerHTML = conf_print;
+
 });
