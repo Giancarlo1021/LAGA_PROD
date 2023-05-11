@@ -1,11 +1,54 @@
 body{
-    background-color: #9B6D45;
+    background-color: #A2C4E0;
+    font-family: 'Ysabeau', sans-serif;
 }
 
 nav{
-    background-color: #DCC69C;
+    background-color: #0d6efd;
+    border-radius: 4px;
+    
 }
 
 form{
     line-height: 2;
+}
+
+a:link {
+
+    color: #F7CB2D;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #F7CB2D;
+}
+
+a:hover{
+    color: #F7CB2D;
+}
+
+.header2 {
+    text-align: center;
+    font-family: 'Sansita Swashed', cursive;
+    text-shadow: 1px 1px 2px #0d6efd;
+    padding-bottom: 10px;
+}
+
+#main_book {
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-shadow: 1px 1px 2px #000000;
+
+}
+
+#main {
+    padding-top: 10px;
+    font-family: 'Sansita Swashed', cursive;
+    text-shadow: 1px 1px 2px #0d6efd;
+}
+
+#landing_img {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
